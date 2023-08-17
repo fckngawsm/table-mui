@@ -7,22 +7,10 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
-import { CustomerType } from "../types/Customer";
 import { useAppDispatch, useAppSelector } from "../redux-hooks";
 import { customersSelectors } from "../features/customers-selector";
 import { loadingCustomers } from "../features/customers-slice";
 
-// function createData({
-//   id,
-//   name,
-//   email,
-//   country,
-//   postalZip,
-//   address,
-//   createdAt,
-// }: CustomerType) {
-//   return { id, name, email, country, postalZip, address, createdAt };
-// }
 
 function CustomerTable() {
   const customers = useAppSelector(customersSelectors);
