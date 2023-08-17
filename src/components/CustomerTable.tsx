@@ -11,7 +11,6 @@ import { useAppDispatch, useAppSelector } from "../redux-hooks";
 import { customersSelectors } from "../features/customers-selector";
 import { loadingCustomers } from "../features/customers-slice";
 
-
 function CustomerTable() {
   const customers = useAppSelector(customersSelectors);
   const dispatch = useAppDispatch();
@@ -40,15 +39,25 @@ function CustomerTable() {
             </TableRow>
           </TableHead>
           <TableBody>
-            {customers.map((customer) => (
+            {customers.map((customer,idx) => (
               <TableRow
-                key={customer.id}
+                key={idx}
                 sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
               >
                 <TableCell component="th" scope="row">
                   {customer.email}
                 </TableCell>
-                <TableCell component="th" scope="row">
+                <TableCell
+                  component="th"
+                  scope="row"
+                  sx={{
+                    color:
+                      customer.status === "Invalid" ||
+                      customer.status === "Bounced"
+                        ? "#da98fe"
+                        : "#d791a4",
+                  }}
+                >
                   {customer.status}
                 </TableCell>
                 <TableCell align="right">{customer.name}</TableCell>
