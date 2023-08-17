@@ -1,0 +1,1 @@
+export const ALL_CUSTOMERS = "https://40d972c93698366ea93f8fffaef51148.m.pipedream.net/customer";
